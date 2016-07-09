@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VR_concept_2</string>
+    <string name="error_video">Error getting video</string>
 </resources>
