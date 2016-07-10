@@ -6,4 +6,9 @@
             android:title="@string/switch_mode"
             android:icon="@drawable/ic_switch_mode"
             app:showAsAction="always"/>
+    <item
+            android:id="@+id/switch_display_mode"
+            android:title="@string/switch_display_mode"
+            android:icon="@drawable/ic_switch_display_mode"
+            app:showAsAction="always"/>
 </menu>

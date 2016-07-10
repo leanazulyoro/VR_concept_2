@@ -88,6 +88,10 @@ public class MainActivity extends AppCompatActivity
                 mdvrLibrary.switchInteractiveMode(this);
                 return true;
 
+            case R.id.switch_display_mode:
+                mdvrLibrary.switchDisplayMode(this);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
