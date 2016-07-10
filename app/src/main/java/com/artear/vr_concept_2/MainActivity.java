@@ -6,9 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
-import android.view.Surface;
-import android.view.View;
+import android.view.*;
 import com.asha.vrlib.MDVRLibrary;
 
 import java.io.IOException;
@@ -30,7 +28,6 @@ public class MainActivity extends AppCompatActivity
                 .displayMode(MDVRLibrary.DISPLAY_MODE_NORMAL)
                 .interactiveMode(MDVRLibrary.INTERACTIVE_MODE_MOTION)
                 .motionDelay(SensorManager.SENSOR_DELAY_GAME)
-                .interactiveMode(MDVRLibrary.INTERACTIVE_MODE_TOUCH)
                 .ifNotSupport(new MDVRLibrary.INotSupportCallback()
                 {
                     @Override
@@ -73,6 +70,27 @@ public class MainActivity extends AppCompatActivity
     public boolean onTouchEvent(MotionEvent event)
     {
         return mdvrLibrary.handleTouchEvent(event) || super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.switch_mode:
+                mdvrLibrary.switchInteractiveMode(this);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
